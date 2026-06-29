@@ -48,6 +48,11 @@ The build is two MCUs plus RF front-ends, a display, and decoupling parts. Cyber
 **Antennas:** the `-U` ESP32 and the PA+LNA nRF24 modules use external antennas — but per [Section 2](#2-legal--safety-read-this-first), any antenna is for **bench/shielded study only**, never on-air operation.
 
 ## 4. Building / Assembly (hardware study)
+
+![Module wiring diagram](../assets/wiring-bluejammer-esp32.png)
+
+*Pin layout & connections — verify exact GPIO against the upstream schematic and the table below.*
+
 This section documents the wiring **as published upstream**, for understanding the device — not as a step toward operating it. Confirm every pin against the upstream README/wiring images before trusting it (*verify: upstream README pinout tables and photos*).
 
 **nRF24L01+ → ESP32-WROOM-32U** (up to four modules; NRF3/NRF4 share the SPI buses of NRF1/NRF2):
@@ -81,6 +86,11 @@ Every module: **VCC → 3.3 V, GND → GND, with a 10 µF electrolytic cap acros
 **Pre-built boards:** none — BlueJammer-V2 is a DIY wiring build. Cyber Controller does not assemble or wire anything; it only flashes the ESP32 once built.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-boot.png)
+
+*How to connect the board to flash it (classic ESP32 — BOOT/EN download mode).*
+
 Cyber Controller flashes **only the ESP32-WROOM-32U** with the pinned v0.2 image. (The BW16 is flashed separately by the upstream `amebatool` flow / `RUN_THIS.bat`; Cyber Controller does not touch it.)
 
 1. **Drivers:** install the USB-serial driver for your DevKit — **CP210x** or **CH340** depending on the board — or no COM port appears.

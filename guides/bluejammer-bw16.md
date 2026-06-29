@@ -52,6 +52,11 @@ The BW16 here is the **UART-master controller**. Assembly relevant to *flashing 
 - **Drivers (host):** install the USB-serial driver for your adapter/board — **CP210x** or **CH340** — or no COM port appears.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-rtl8720.png)
+
+*How to connect the BW16/RTL8720DN over a 3.3V USB-TTL adapter for AmebaD flashing.*
+
 Cyber Controller flashes the BW16 controller using the **`rtl8720` backend** (Realtek **AmebaD ImageTool / `upload_image_tool`**), the same flow as the standalone `rtl8720` profile.
 
 **One-time host prerequisite (AmebaD tool):** the `rtl8720` backend needs **Realtek's `upload_image_tool`** on the host (it is **not bundled** — closed/GPL constraints). Provide it via the **`CYBERC_AMEBAD_TOOL`** env var, or drop it in **`tools/realtek/`** (on **Windows** include **`cygwin1.dll`** alongside it).

@@ -66,6 +66,11 @@ your chosen Wi-Fi chipset supports monitor mode under your kernel/Kismet version
   that Kismet is writing a `.kismet` SQLite DB whose path matches `config.json` — the analyzers read from it.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-boot.png)
+
+*How to connect the board to flash it (classic ESP32 — BOOT/EN download mode).*
+
 1. Connect the ESP32 by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → driver issue).
 3. **Firmware Profile:** `Chasing Your Tail NG` (profile `cyt-ng`; backend **esptool**, chip **esp32**).

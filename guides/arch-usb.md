@@ -54,6 +54,11 @@ to confirm whichever mirror you use.*
   Secure Boot behavior.*
 
 ## 5. Flash to USB via Cyber Controller's Software-OS tab
+
+![Flashing connection diagram](../assets/connect-sd.png)
+
+*Cyber Controller writes the image to a removable microSD/USB; then boot the device.*
+
 1. Insert the USB. Open Cyber Controller → **Software-OS** tab.
 2. **Operating System:** pick **Arch Linux**. Description shows `ISO`, verified via `image_sig`.
 3. **Check latest:** Cyber Controller resolves the current release **live** from the official feed

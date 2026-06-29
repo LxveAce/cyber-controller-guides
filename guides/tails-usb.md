@@ -54,6 +54,11 @@ don't recognize. *Verify: consider a second "throwaway" stick if you'll move the
   multiboot setup.*
 
 ## 5. Flash to USB via Cyber Controller's Software-OS tab
+
+![Flashing connection diagram](../assets/connect-sd.png)
+
+*Cyber Controller writes the image to a removable microSD/USB; then boot the device.*
+
 1. Insert the USB. Open Cyber Controller → **Software-OS** tab.
 2. **Operating System:** pick **Tails**. Description shows `IMG`, verified via `image_sig`.
 3. **Check latest:** Cyber Controller resolves the current Tails release **live** from the official

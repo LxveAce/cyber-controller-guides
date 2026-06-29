@@ -72,6 +72,11 @@ combined `.bin` from your build, or wait for an upstream release. The profile's 
 release and falls back to "source only" rather than erroring.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. Connect the board by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → USB-serial driver issue, see §8).
 3. **Firmware Profile:** `ESP32 AirTag Scanner` (profile id `airtag-scanner`, esptool backend).

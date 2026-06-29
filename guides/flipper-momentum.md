@@ -64,6 +64,11 @@ There is **nothing to build or solder** — the Flipper Zero ships fully assembl
   there is no "which screen/board" decision to get wrong.
 
 ## 5. Flashing & First Run (via Cyber Controller — qFlipper install flow)
+
+![Flashing connection diagram](../assets/connect-qflipper.png)
+
+*Cyber Controller hands the firmware package to qFlipper, which installs it over USB-C.*
+
 Cyber Controller does **not** esptool-flash the Flipper. The `flipper-momentum` profile uses the **qflipper
 backend**: it resolves the latest GitHub release, downloads the firmware **package**, then launches your
 **locally installed qFlipper** app to install it over USB DFU.

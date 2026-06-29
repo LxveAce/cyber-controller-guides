@@ -66,6 +66,11 @@ in-circuit EEPROM/flash dumping. Two optional companion projects exist (verify b
 (lets an S3 DevKit use original Bus Pirate adapters/accessories).
 
 ## 4. Building / Assembly
+
+![Module wiring diagram](../assets/wiring-esp32-bit-pirate.png)
+
+*Pin layout & connections — verify exact GPIO against the upstream schematic and the table below.*
+
 - **Pre-built boards (Cardputer, T-Embed, XIAO, StampS3, Atom, Stick):** no assembly — just a data cable.
   Onboard modules (CC1101, PN532, NRF24, IR) are already wired on the boards that include them.
 - **DevKit bench rig (DIY):** the "build" here is **wiring to the target chip**, not soldering the ESP32.
@@ -84,6 +89,11 @@ in-circuit EEPROM/flash dumping. Two optional companion projects exist (verify b
   carry a USB-serial bridge instead — *verify your board's chip (e.g. CH9102 → CH34x driver, or CP210x)*.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. Connect the board by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → driver/cable issue).
 3. **Firmware Profile:** `esp32-bit-pirate`.

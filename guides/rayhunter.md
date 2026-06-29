@@ -85,6 +85,11 @@ means getting the device and host ready:
   users. (§9)
 
 ## 5. Install & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-adb.png)
+
+*Cyber Controller installs over ADB and reaches the device's web dashboard.*
+
 Cyber Controller's **ADB backend** automates the EFF release installer end-to-end (download → verify → run →
 forward → status). Manual equivalents are shown so you understand each step.
 

@@ -81,6 +81,11 @@ Pwnagotchi targets the small, low-power Raspberry Pi boards. Pick by portability
   e-ink retains its last image with the board off, so the face persists when powered down.
 
 ## 5. Write the SD image (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-sd.png)
+
+*Cyber Controller writes the image to a removable microSD/USB; then boot the device.*
+
 Pwnagotchi is **not flashed over serial** — Cyber Controller writes a whole-disk `.img` to a
 **removable** microSD. The writer refuses fixed/system disks, refuses drives ≥ 256 GB, requires an
 explicit removable target plus confirmation, and needs **Administrator/root** for raw disk access.

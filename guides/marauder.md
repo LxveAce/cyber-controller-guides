@@ -45,6 +45,11 @@ board exposes a u.FL connector. **Avoid** ESP32 clones with the wrong flash size
   (Cyber Controller handles this automatically).
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. Connect the board by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → driver issue).
 3. **Firmware Profile:** `ESP32 Marauder`.

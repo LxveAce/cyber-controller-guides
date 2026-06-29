@@ -93,6 +93,11 @@ The "always" offsets (partition table, `boot_app0`, app) are constant across chi
 > If a project ships a **merged** image, you can ignore all of this and flash at `0x0`.
 
 ## 5. Flashing a local `.bin` via Cyber Controller
+
+![Flashing connection diagram](../assets/connect-esptool-boot.png)
+
+*How to connect the board to flash it (classic ESP32 — BOOT/EN download mode).*
+
 Cyber Controller's Flash tab loads firmware via a small **profile JSON**, and the `custom` profile's job is to carry a pointer to your local file. The cleanest way to flash an arbitrary `.bin` is to write a tiny local profile JSON and load it.
 
 ### 5.1 Write a one-off local profile (recommended, most explicit)

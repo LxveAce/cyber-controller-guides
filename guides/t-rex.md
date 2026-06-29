@@ -69,6 +69,11 @@ Build from source only if you want to modify it.
   automatically via `lib_deps`. License is **AGPL-3.0** (derivatives must be shared alike).
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. Connect the T-Deck by USB-C; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → see §8). The ESP32-S3 enumerates as a
    native USB serial device.

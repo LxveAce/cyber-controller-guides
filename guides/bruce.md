@@ -66,6 +66,11 @@ with the wrong flash size — verify 4 MB+ (S3 boards are 8–16 MB).
   board in the latest release ([§9](#9-sources)).*
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. Connect the board by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → driver issue).
 3. **Firmware Profile:** `Bruce`.

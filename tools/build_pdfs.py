@@ -28,20 +28,33 @@ PDF = ROOT / "pdf"
 DATA = ROOT / "data" / "projects.json"
 
 _CSS = """
-@page { size: A4; margin: 1.8cm 1.6cm; }
-body { font-family: Helvetica, Arial, sans-serif; font-size: 10.5pt; color: #1b1f24; line-height: 1.45; }
-h1 { color: #0b6; font-size: 20pt; border-bottom: 2px solid #0b6; padding-bottom: 4px; }
-h2 { color: #094; font-size: 14pt; margin-top: 16px; border-bottom: 1px solid #cde; padding-bottom: 2px; }
-h3 { color: #073; font-size: 12pt; margin-top: 12px; }
+@page {
+  size: a4 portrait;
+  margin: 2cm 1.6cm 2.3cm 1.6cm;
+  @frame footer { -pdf-frame-content: footerContent; -pdf-frame-border: 0;
+                  bottom: 1.1cm; margin-left: 1.6cm; margin-right: 1.6cm; height: 1cm; }
+}
+body { font-family: Helvetica, Arial, sans-serif; font-size: 10.5pt; color: #1b1f24; line-height: 1.5; }
+h1 { color: #0a8f5a; font-size: 22pt; padding-bottom: 6px; border-bottom: 3px solid #0a8f5a; }
+/* Each major (numbered) section starts on a fresh page for clean print segregation. */
+h2 { color: #07623e; font-size: 15pt; margin: 0 0 8px 0; padding: 6px 0 4px 0;
+     border-bottom: 1px solid #cfe0d6; page-break-before: always; page-break-after: avoid; }
+h3 { color: #0a5; font-size: 12.5pt; margin-top: 12px; page-break-after: avoid; }
+p, li { page-break-inside: avoid; }
 code { font-family: Consolas, monospace; background: #f2f4f7; font-size: 9pt; }
-pre { background: #0d1117; color: #d6e2f0; padding: 8px; font-size: 8.5pt; }
+pre { background: #0d1117; color: #d6e2f0; padding: 9px; font-size: 8.5pt; page-break-inside: avoid; }
 pre code { background: transparent; color: #d6e2f0; }
-table { border-collapse: collapse; width: 100%; font-size: 9pt; }
-th, td { border: 1px solid #c7d0da; padding: 4px 6px; text-align: left; }
-th { background: #eef3f8; }
-blockquote { border-left: 3px solid #f0883e; background: #fff6ee; padding: 4px 10px; color: #5a4632; }
+table { border-collapse: collapse; width: 100%; font-size: 9pt; page-break-inside: avoid; margin: 6px 0; }
+th, td { border: 1px solid #c7d0da; padding: 5px 7px; text-align: left; }
+th { background: #e9f3ee; color: #07623e; }
+blockquote { border-left: 3px solid #f0883e; background: #fff6ee; padding: 6px 12px; color: #5a4632; }
 a { color: #0a6cc4; text-decoration: none; }
-.cover { color: #6b7682; font-size: 9pt; }
+img { max-width: 100%; page-break-inside: avoid; }
+.diagram { margin: 10px 0 4px 0; }
+.caption { color: #6b7682; font-size: 8.5pt; font-style: italic; margin: 0 0 10px 0; }
+.cover-meta { color: #44505c; font-size: 9.5pt; margin: 8px 0 2px 0; }
+.cover-rule { border: 0; border-top: 1px solid #cfe0d6; margin: 10px 0 4px 0; }
+#footerContent { color: #8b949e; font-size: 8pt; text-align: center; }
 """
 
 
@@ -61,8 +74,27 @@ def _to_html(md_text: str, slug: str, meta: dict) -> str:
         x for x in [info.get("group"), ", ".join(info.get("chips", []) or []) or info.get("backend"),
                     info.get("repo")] if x
     )
-    cover = f'<div class="cover">Cyber Controller Hardware Guide &nbsp;|&nbsp; {sub} &nbsp;|&nbsp; built {date.today().isoformat()}</div>'
-    return f"<html><head><meta charset='utf-8'><style>{_CSS}</style></head><body>{cover}{body}</body></html>"
+    cover = (
+        f'<div class="cover-meta"><b>Cyber Controller Hardware Guide</b></div>'
+        f'<div class="cover-meta">{sub}</div>'
+        f'<div class="cover-meta">Built {date.today().isoformat()} · '
+        f'<a href="https://github.com/LxveAce/cyber-controller-guides">cyber-controller-guides</a></div>'
+        f'<hr class="cover-rule"/>'
+    )
+    footer = ('<div id="footerContent">Cyber Controller Hardware Guides &middot; '
+              'authorized / lawful use only &middot; page <pdf:pagenumber> of <pdf:pagecount></div>')
+    return (f"<html><head><meta charset='utf-8'><style>{_CSS}</style></head>"
+            f"<body>{footer}{cover}{body}</body></html>")
+
+
+def _img_link_callback(uri, rel):
+    """Resolve guide image refs (e.g. ../assets/x.png) against the repo root for xhtml2pdf."""
+    name = uri.replace("\\", "/").split("assets/")[-1]
+    cand = ROOT / "assets" / name
+    if cand.exists():
+        return str(cand)
+    p = Path(uri)
+    return str(p if p.is_absolute() else (ROOT / uri))
 
 
 def _via_xhtml2pdf(html: str, out: Path) -> bool:
@@ -71,7 +103,7 @@ def _via_xhtml2pdf(html: str, out: Path) -> bool:
     except Exception:
         return False
     with out.open("wb") as fh:
-        status = pisa.CreatePDF(html, dest=fh, encoding="utf-8")
+        status = pisa.CreatePDF(html, dest=fh, encoding="utf-8", link_callback=_img_link_callback)
     return not status.err
 
 

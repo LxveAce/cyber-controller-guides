@@ -77,6 +77,11 @@ from source.
 - For normal use you do **not** build anything — Cyber Controller fetches the prebuilt, hash-pinned release.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-boot.png)
+
+*How to connect the board to flash it (classic ESP32 — BOOT/EN download mode).*
+
 1. Connect the DevKit V1 by Micro-USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → driver/cable issue, see §8).
 3. **Firmware Profile:** `Hydra32 (ESP32-Deauther)` (profile id `hydra32`).

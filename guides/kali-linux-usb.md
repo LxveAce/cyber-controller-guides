@@ -56,6 +56,11 @@ Cyber Controller writes the Live ISO **raw (block-for-block)** to the whole USB 
   persistence the same way. Search: "Ventoy multiboot USB".
 
 ## 5. Flash to USB via Cyber Controller's Software-OS tab
+
+![Flashing connection diagram](../assets/connect-sd.png)
+
+*Cyber Controller writes the image to a removable microSD/USB; then boot the device.*
+
 1. Insert the USB. Open Cyber Controller → **Software-OS** tab (labeled "Write a verified bootable
    operating system to a USB stick").
 2. **Operating System:** pick **Kali Linux (Live)**. The description shows it is an `ISO` verified via

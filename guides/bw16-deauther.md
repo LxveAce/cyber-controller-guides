@@ -58,6 +58,11 @@ The chip then listens on the LOG UART (CLI/monitor baud **115200**; the loader i
 **Drivers:** install your adapter/board's USB-serial driver — **CP210x**, **CH340**, or **FTDI** — or no COM port appears. (Distinct from ESP tooling: this is **not** esptool/ltchiptool — it's Realtek's AmebaD ImageTool, see §5/§6.)
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-rtl8720.png)
+
+*How to connect the BW16/RTL8720DN over a 3.3V USB-TTL adapter for AmebaD flashing.*
+
 **One-time host prerequisite (important).** The RTL8720DN is flashed with **Realtek's AmebaD ImageTool**, which is **not bundled** with Cyber Controller (GPL/licensing). Provide it once:
 - Set the env var **`CYBERC_AMEBAD_TOOL`** to the tool's path, **or** drop the binary into **`tools/realtek/`**.
 - **On Windows, place `cygwin1.dll` alongside it** (the tool is a Cygwin build).

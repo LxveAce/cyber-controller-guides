@@ -56,6 +56,11 @@ logging, region-correct **SMA antennas** for the NRF24 PA/LNA and CC1101, and a 
 current listings (§9).
 
 ## 4. Building / Assembly
+
+![Module wiring diagram](../assets/wiring-esp32-div.png)
+
+*Pin layout & connections — verify exact GPIO against the upstream schematic and the table below.*
+
 - **Pre-built v2:** no assembly — connect a USB-C data cable and (optionally) install a battery + microSD.
 - **DIY build (main board + RF shield):** solder/populate per the repo BOM, then mate the **RF shield to the
   main board via the pogo-pin headers** (v2's spring-loaded stack — no bulky connectors). Seat the **3×
@@ -83,6 +88,11 @@ current listings (§9).
   time from **Tools → Touch Calibration**.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. Connect the device by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the device's COM/tty (click *Refresh* if missing → driver issue, §8).
 3. **Firmware Profile:** `ESP32-DIV`.

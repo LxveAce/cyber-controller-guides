@@ -82,6 +82,11 @@ Swap `-e seeed_xiao_esp32c6` for the C6 board. `pio run -e <env> -t clean` force
   on-module antenna.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 Sky-Spy flashes as a **single merged `.bin` written at offset `0x0`** (esptool backend) — simpler than
 multi-file firmware. In Cyber Controller:
 

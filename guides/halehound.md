@@ -86,6 +86,11 @@ hookup wire; and a soldering iron for the radio pins. **Do not invent product UR
   screen and dead radios. Touch is **resistive (XPT2046)** on all variants and may need calibration.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-boot.png)
+
+*How to connect the board to flash it (classic ESP32 — BOOT/EN download mode).*
+
 1. Connect the CYD by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → almost always a CH340 driver issue).
 3. **Firmware Profile:** `HaleHound`.

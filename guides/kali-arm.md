@@ -66,6 +66,11 @@ recommendations: Atheros AR9271, Realtek RTL8812AU). Onboard Pi WiFi can now do 
   in software after first boot (§7).
 
 ## 5. Write the Kali ARM image via Cyber Controller
+
+![Flashing connection diagram](../assets/connect-sd.png)
+
+*Cyber Controller writes the image to a removable microSD/USB; then boot the device.*
+
 Cyber Controller writes the compressed Kali `.img.xz` straight to the microSD — no separate imager needed.
 1. Insert the **microSD via a USB card reader** so it shows up as a removable drive. On Windows, run Cyber
    Controller **as Administrator** (raw disk writes need it); on Linux/macOS the write uses `dd` and will

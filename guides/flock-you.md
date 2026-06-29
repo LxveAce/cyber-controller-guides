@@ -72,6 +72,11 @@ Flock-You is **source-build firmware (PlatformIO)** — upstream publishes no gu
   DevKit with a USB-serial bridge needs its **CP210x/CH340** driver before a COM port appears.
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. Connect the board by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → native-USB enumeration or driver issue).
 3. **Firmware Profile:** `flock-you` (backend **esptool**, chip **esp32s3**).

@@ -67,6 +67,11 @@ panel** on boards with those headers. **Verify the board's band variant matches 
   bootloader** — they mount as a USB drive for UF2 files (not this profile).
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 1. **Attach the antenna**, then connect the board by USB; open Cyber Controller → **Flash** tab.
 2. **Port:** pick the board's COM/tty (click *Refresh* if missing → driver issue, see §4).
 3. **Firmware Profile:** `Meshtastic`.

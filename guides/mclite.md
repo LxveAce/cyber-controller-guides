@@ -88,6 +88,11 @@ Both targets are **fully assembled commercial devices — no soldering or wiring
   on-screen keyboard**. SOS and lock gestures differ between them (see §7).
 
 ## 5. Flashing & First Run (via Cyber Controller)
+
+![Flashing connection diagram](../assets/connect-esptool-usb.png)
+
+*How to connect the board to flash it via Cyber Controller (native-USB ESP32).*
+
 The `mclite` profile fetches the **latest GitHub release** asset, filters to the **`.bin`** file for your
 board (the release also ships a `config_tool.html`, which is excluded), and writes it as a **single merged
 image at offset `0x0`** via esptool — the same scheme the upstream web flasher uses.

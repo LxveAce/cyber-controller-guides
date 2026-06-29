@@ -68,6 +68,11 @@ adapters above. Ethernet is what you use for the actual drop. (§9)
   provision the microSD on your PC and the Pi boots from it.
 
 ## 5. Writing the SD image via Cyber Controller
+
+![Flashing connection diagram](../assets/connect-sd.png)
+
+*Cyber Controller writes the image to a removable microSD/USB; then boot the device.*
+
 RaspyJack's backend is **`sd`** (an SD-card image written block-level to a *removable* drive), **not**
 esptool serial flashing. Cyber Controller's SD / Software-OS writer drives this through
 `sd_backend.flash_sd(profile_id, asset, device, confirmed=True)` with hard safety invariants:

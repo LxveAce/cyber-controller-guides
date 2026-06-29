@@ -1,0 +1,49 @@
+{
+  "esp32-div": {
+    "title": "Wiring — ESP32-DIV: NRF24 + CC1101 on the shared SPI bus (v2 GPIO)",
+    "boxes": [
+      {"id": "mcu", "title": "ESP32-S3 (DIV v2)", "pins": ["SCK  GPIO12", "MOSI GPIO11", "MISO GPIO13", "NRF1 CSN G4 / CE G15", "CC1101 CSN G5", "3V3", "GND"], "x": 80, "y": 120, "w": 320},
+      {"id": "nrf", "title": "NRF24L01+ (x3)", "pins": ["SCK", "MOSI", "MISO", "CSN", "CE", "VCC 3V3", "GND"], "x": 720, "y": 90, "w": 300},
+      {"id": "cc", "title": "CC1101 (Sub-GHz)", "pins": ["SCK", "MOSI", "MISO", "CSN", "VCC 3V3", "GND"], "x": 720, "y": 360, "w": 300}
+    ],
+    "links": [
+      {"a": ["mcu", "SCK  GPIO12"], "b": ["nrf", "SCK"], "label": "SCK"},
+      {"a": ["mcu", "MOSI GPIO11"], "b": ["nrf", "MOSI"], "label": "MOSI"},
+      {"a": ["mcu", "MISO GPIO13"], "b": ["nrf", "MISO"], "label": "MISO"},
+      {"a": ["mcu", "NRF1 CSN G4 / CE G15"], "b": ["nrf", "CSN"], "label": "CSN/CE"},
+      {"a": ["mcu", "CC1101 CSN G5"], "b": ["cc", "CSN"], "label": "CSN"},
+      {"a": ["mcu", "3V3"], "b": ["cc", "VCC 3V3"], "label": "3V3"}
+    ],
+    "note": "Radios share SCK/MOSI/MISO; each has its own CS. NRF24 #2/#3 use separate CSN/CE GPIO (see the connection table). Power radios from a clean 3.3V; add a 10uF cap per NRF24 VCC/GND to avoid brownouts. Verify exact GPIO against the upstream v2 schematic."
+  },
+  "bluejammer-esp32": {
+    "title": "Wiring — BlueJammer ESP32: NRF24L01+ x4 (LAB STUDY ONLY)",
+    "boxes": [
+      {"id": "mcu", "title": "ESP32-WROOM-32U", "pins": ["VSPI SCK / MOSI / MISO", "CSN1..CSN4 (4 pins)", "CE (shared)", "3V3", "GND", "I2C OLED SDA/SCL"], "x": 80, "y": 120, "w": 340},
+      {"id": "nrf", "title": "NRF24L01+PA+LNA  (x4)", "pins": ["SCK / MOSI / MISO", "CSN (per module)", "CE", "VCC 3V3 (+10uF cap)", "GND"], "x": 720, "y": 130, "w": 300},
+      {"id": "oled", "title": "128x64 OLED (I2C)", "pins": ["SDA", "SCL", "VCC 3V3", "GND"], "x": 720, "y": 400, "w": 300}
+    ],
+    "links": [
+      {"a": ["mcu", "VSPI SCK / MOSI / MISO"], "b": ["nrf", "SCK / MOSI / MISO"], "label": "SPI bus"},
+      {"a": ["mcu", "CSN1..CSN4 (4 pins)"], "b": ["nrf", "CSN (per module)"], "label": "4x CSN"},
+      {"a": ["mcu", "CE (shared)"], "b": ["nrf", "CE"], "label": "CE"},
+      {"a": ["mcu", "I2C OLED SDA/SCL"], "b": ["oled", "SDA"], "label": "I2C"}
+    ],
+    "note": "*** LAB-ONLY / ILLEGAL TO OPERATE (FCC 47 U.S.C. 333). *** Shown for hardware study only. Each NRF24 needs a 10uF cap across VCC/GND (brownout fix). Verify exact GPIO against the upstream wiring guide."
+  },
+  "esp32-bit-pirate": {
+    "title": "Wiring — ESP32 Bit Pirate to a target device (probe)",
+    "boxes": [
+      {"id": "mcu", "title": "ESP32-S3 (Bit Pirate)", "pins": ["GND (common!)", "IO (UART TX)", "IO (UART RX)", "IO (SDA / I2C)", "IO (SCL / I2C)", "IO (SPI ...)", "3V3 out (optional)"], "x": 70, "y": 120, "w": 340},
+      {"id": "tgt", "title": "Target chip / board", "pins": ["GND", "RX  (<- TX)", "TX  (-> RX)", "SDA", "SCL", "MOSI/MISO/SCK", "VCC (3.3V logic!)"], "x": 720, "y": 120, "w": 320}
+    ],
+    "links": [
+      {"a": ["mcu", "GND (common!)"], "b": ["tgt", "GND"], "label": "GND (always first)"},
+      {"a": ["mcu", "IO (UART TX)"], "b": ["tgt", "RX  (<- TX)"], "label": "TX->RX"},
+      {"a": ["mcu", "IO (UART RX)"], "b": ["tgt", "TX  (-> RX)"], "label": "RX<-TX"},
+      {"a": ["mcu", "IO (SDA / I2C)"], "b": ["tgt", "SDA"], "label": "SDA"},
+      {"a": ["mcu", "IO (SCL / I2C)"], "b": ["tgt", "SCL"], "label": "SCL"}
+    ],
+    "note": "ALWAYS tie GND first. ESP32 GPIO are 3.3V — do NOT connect 5V logic without a level shifter. Pick the bus (UART/I2C/SPI) in the Bit Pirate menu; only wire the lines that bus uses."
+  }
+}

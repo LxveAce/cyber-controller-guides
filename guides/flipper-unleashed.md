@@ -59,6 +59,11 @@ The Flipper Zero is a **finished consumer device — there is no assembly**. Set
   most users; pick a specific asset only if you know you need a variant.
 
 ## 5. Installing Unleashed (via Cyber Controller → qFlipper)
+
+![Flashing connection diagram](../assets/connect-qflipper.png)
+
+*Cyber Controller hands the firmware package to qFlipper, which installs it over USB-C.*
+
 Cyber Controller's role here is **package delivery, not chip flashing**: it resolves and downloads the
 correct Unleashed release, then hands the package to your locally installed **qFlipper**, which performs
 the install.
