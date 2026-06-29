@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "airtag-scanner",
+    "name": "AirTag Scanner",
+    "group": "ESP32",
+    "category": "BLE AirTag / tracker detector (counter-surveillance)",
+    "backend": "esptool",
+    "chips": [
+      "esp32",
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32 Generic",
+      "ESP32-S3 Generic",
+      "ESP32 CYD 2.8\" Touchscreen"
+    ],
+    "repo": "MatthewKuKanich/ESP32-AirTag-Scanner",
+    "profile": "airtag_scanner.json",
+    "danger": null
+  },
+  {
+    "slug": "esp32-bit-pirate",
+    "name": "ESP32 Bit Pirate",
+    "group": "ESP32",
+    "category": "Bus Pirate-style hardware hacking multi-tool",
+    "backend": "esptool",
+    "chips": [
+      "esp32s3"
+    ],
+    "boards": [
+      "Seeed XIAO ESP32-S3",
+      "M5 Cardputer",
+      "M5StickC Plus2 (StickS3)",
+      "LilyGo T-Embed CC1101",
+      "LilyGo T-Display-S3",
+      "ESP32-S3 DevKit (8MB / 16MB-N16R8)",
+      "M5 AtomS3 Lite",
+      "M5 Stamp S3"
+    ],
+    "repo": "geo-tp/ESP32-Bit-Pirate",
+    "profile": "bit_pirate.json",
+    "danger": ""
+  },
+  {
+    "slug": "bluejammer-bw16",
+    "name": "BlueJammer-V2 - BW16 controller",
+    "group": "RTL8720",
+    "category": "BlueJammer BW16 controller",
+    "backend": "rtl8720",
+    "chips": [
+      "rtl8720"
+    ],
+    "boards": [
+      "Ai-Thinker BW16 (RTL8720DN)"
+    ],
+    "repo": "EmenstaNougat/BlueJammer-V2",
+    "profile": "bluejammer_bw16.json",
+    "danger": "LAB-ONLY / illegal to operate (FCC 47 U.S.C. 333) \u2014 flash-and-study only"
+  },
+  {
+    "slug": "bluejammer-esp32",
+    "name": "BlueJammer-V2 - ESP32 engine",
+    "group": "ESP32",
+    "category": "BlueJammer ESP32 engine",
+    "backend": "esptool",
+    "chips": [
+      "esp32"
+    ],
+    "boards": [
+      "ESP32-WROOM-32U"
+    ],
+    "repo": "EmenstaNougat/BlueJammer-V2",
+    "profile": "bluejammer_esp32.json",
+    "danger": "LAB-ONLY / illegal to operate (FCC 47 U.S.C. 333) \u2014 flash-and-study only"
+  },
+  {
+    "slug": "bruce",
+    "name": "Bruce",
+    "group": "ESP32",
+    "category": "Multi-tool pentest firmware (WiFi/BLE/IR/RF/RFID, BadUSB)",
+    "backend": "esptool",
+    "chips": [
+      "esp32",
+      "esp32c5",
+      "esp32c6",
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32 Generic",
+      "M5Cardputer",
+      "M5StickC Plus2",
+      "LilyGo T-Embed CC1101",
+      "LilyGo T-Deck",
+      "LilyGo T-Dongle-S3",
+      "ESP32 CYD (CYD-2432S028)",
+      "ESP32-C5 Generic",
+      "ESP32-C6 Generic"
+    ],
+    "repo": "BruceDevices/firmware",
+    "profile": "bruce.json",
+    "danger": null
+  },
+  {
+    "slug": "custom-local-bin",
+    "name": "Custom / local .bin",
+    "group": "Meta",
+    "category": "Bring-your-own precompiled .bin (any ESP32)",
+    "backend": "esptool",
+    "chips": [],
+    "boards": [],
+    "repo": "",
+    "profile": "custom.json",
+    "danger": ""
+  },
+  {
+    "slug": "chasing-your-tail-ng",
+    "name": "Chasing Your Tail NG",
+    "group": "ESP32",
+    "category": "Counter-surveillance device-following detector",
+    "backend": "esptool",
+    "chips": [
+      "esp32"
+    ],
+    "boards": [
+      "ESP32 Generic"
+    ],
+    "repo": "ArgeliusLabs/Chasing-Your-Tail-NG",
+    "profile": "cyt_ng.json",
+    "danger": null
+  },
+  {
+    "slug": "esp32-div",
+    "name": "ESP32-DIV",
+    "group": "ESP32",
+    "category": "Multi-tool RF/WiFi/SubGHz/NFC analyzer (NRF24+CC1101)",
+    "backend": "esptool",
+    "chips": [
+      "esp32",
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32-S3 (DIV v2, current)",
+      "ESP32 Generic (DIV v1, legacy)"
+    ],
+    "repo": "cifertech/ESP32-DIV",
+    "profile": "esp32_div.json",
+    "danger": null
+  },
+  {
+    "slug": "flipper-momentum",
+    "name": "Flipper Zero - Momentum",
+    "group": "Flipper Zero",
+    "category": "Momentum custom firmware for Flipper Zero",
+    "backend": "qflipper",
+    "chips": [
+      "stm32wb55"
+    ],
+    "boards": [
+      "Flipper Zero"
+    ],
+    "repo": "Next-Flip/Momentum-Firmware",
+    "profile": "flipper_momentum.json",
+    "danger": null
+  },
+  {
+    "slug": "flipper-unleashed",
+    "name": "Flipper Zero - Unleashed",
+    "group": "Flipper Zero",
+    "category": "Unleashed custom firmware for Flipper Zero",
+    "backend": "qflipper",
+    "chips": [
+      "stm32wb55"
+    ],
+    "boards": [
+      "Flipper Zero"
+    ],
+    "repo": "DarkFlippers/unleashed-firmware",
+    "profile": "flipper_unleashed.json",
+    "danger": null
+  },
+  {
+    "slug": "flock-you",
+    "name": "Flock-You",
+    "group": "ESP32",
+    "category": "Flock-camera/ALPR detection (counter-surveillance)",
+    "backend": "esptool",
+    "chips": [
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32-S3 Generic"
+    ],
+    "repo": "colonelpanichacks/flock-you",
+    "profile": "flock_you.json",
+    "danger": null
+  },
+  {
+    "slug": "ghost-esp",
+    "name": "GhostESP",
+    "group": "ESP32",
+    "category": "Lightweight WiFi/BLE scan-monitor-deauth firmware",
+    "backend": "esptool",
+    "chips": [
+      "esp32",
+      "esp32c5",
+      "esp32c6",
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32 Generic",
+      "ESP32-S3 DevKitC-1",
+      "ESP32-C5 DevKitC-1",
+      "ESP32-C6 DevKitC-1",
+      "ESP32 CYD 2.8\" Touchscreen"
+    ],
+    "repo": "GhostESP-Revival/GhostESP",
+    "profile": "ghost_esp.json",
+    "danger": null
+  },
+  {
+    "slug": "halehound",
+    "name": "HaleHound",
+    "group": "ESP32",
+    "category": "CYD-based WiFi attack/recon firmware",
+    "backend": "esptool",
+    "chips": [
+      "esp32"
+    ],
+    "boards": [
+      "ESP32 CYD 2.8\" (ESP32-2432S028R)",
+      "QDtech E32R35T CYD 3.5\"",
+      "QDtech E32R28T CYD 2.8\"",
+      "NM-RF-Hat"
+    ],
+    "repo": "JesseCHale/HaleHound-CYD",
+    "profile": "halehound.json",
+    "danger": null
+  },
+  {
+    "slug": "hydra32",
+    "name": "Hydra32 (ESP32-Deauther)",
+    "group": "ESP32",
+    "category": "ESP32-Deauther WiFi recon + deauth (authorized testing only)",
+    "backend": "esptool",
+    "chips": [
+      "esp32"
+    ],
+    "boards": [
+      "ESP32 DevKit V1"
+    ],
+    "repo": "SameerAlSahab/ESP32-Deauther",
+    "profile": "hydra32.json",
+    "danger": null
+  },
+  {
+    "slug": "kali-arm",
+    "name": "Kali Linux ARM",
+    "group": "SBC / SD",
+    "category": "Kali Linux ARM image for Raspberry Pi",
+    "backend": "sd",
+    "chips": [],
+    "boards": [
+      "Raspberry Pi"
+    ],
+    "repo": "https://kali.download/arm-images/",
+    "profile": "kali_arm.json",
+    "danger": null
+  },
+  {
+    "slug": "marauder",
+    "name": "ESP32 Marauder",
+    "group": "ESP32",
+    "category": "WiFi/BLE offensive security (deauth, evil-AP, beacon spam, sniffing)",
+    "backend": "esptool",
+    "chips": [
+      "esp32",
+      "esp32c5",
+      "esp32s2",
+      "esp32s3"
+    ],
+    "boards": [
+      "Lonely Binary ESP32 Gold",
+      "ESP32 CYD 2.8\" Touchscreen",
+      "ESP32 CYD 2.4\" Guition",
+      "ESP32 CYD 3.5\" Touchscreen",
+      "Waveshare ESP32-C5",
+      "M5StickC Plus2",
+      "M5Cardputer",
+      "M5Cardputer ADV",
+      "Marauder Mini",
+      "Marauder Mini v3 (C5 Edition)",
+      "Flipper Zero WiFi Dev Board",
+      "Flipper MultiBoard S3"
+    ],
+    "repo": "justcallmekoko/ESP32Marauder",
+    "profile": "marauder.json",
+    "danger": null
+  },
+  {
+    "slug": "mclite",
+    "name": "MCLite (MeshCore)",
+    "group": "ESP32",
+    "category": "MeshCore off-grid/emergency comms (encrypted, LoRa)",
+    "backend": "esptool",
+    "chips": [
+      "esp32s3"
+    ],
+    "boards": [
+      "LilyGo T-Deck Plus",
+      "LilyGo T-Watch Ultra"
+    ],
+    "repo": "laserir/MCLite",
+    "profile": "mclite.json",
+    "danger": ""
+  },
+  {
+    "slug": "meshtastic",
+    "name": "Meshtastic",
+    "group": "ESP32",
+    "category": "LoRa off-grid mesh messaging firmware",
+    "backend": "esptool",
+    "chips": [
+      "esp32s3"
+    ],
+    "boards": [
+      "Heltec LoRa V3"
+    ],
+    "repo": "meshtastic/firmware",
+    "profile": "meshtastic.json",
+    "danger": null
+  },
+  {
+    "slug": "minigotchi-v3",
+    "name": "MinigotchiV3",
+    "group": "ESP32",
+    "category": "Pwnagotchi-style WiFi handshake/PMKID collector",
+    "backend": "esptool",
+    "chips": [
+      "esp32",
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32 Dual-Core Generic",
+      "M5Cardputer (ESP32-S3)"
+    ],
+    "repo": "dj1ch/minigotchi-V3",
+    "profile": "minigotchi.json",
+    "danger": null
+  },
+  {
+    "slug": "oui-spy",
+    "name": "OUI-Spy",
+    "group": "ESP32",
+    "category": "BLE/WiFi OUI device tracker / proximity tool",
+    "backend": "esptool",
+    "chips": [
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32-S3 Generic"
+    ],
+    "repo": "colonelpanichacks/oui-spy-unified-blue",
+    "profile": "oui_spy.json",
+    "danger": null
+  },
+  {
+    "slug": "pwnagotchi",
+    "name": "Pwnagotchi",
+    "group": "SBC / SD",
+    "category": "Raspberry Pi WiFi handshake/PMKID AI collector",
+    "backend": "sd",
+    "chips": [],
+    "boards": [
+      "Raspberry Pi Zero 2 W",
+      "Raspberry Pi 3/4/5"
+    ],
+    "repo": "https://github.com/jayofelony/pwnagotchi",
+    "profile": "pwnagotchi.json",
+    "danger": null
+  },
+  {
+    "slug": "raspyjack",
+    "name": "RaspyJack",
+    "group": "SBC / SD",
+    "category": "Raspberry Pi network-attack drop tool (Bash Bunny-like)",
+    "backend": "sd",
+    "chips": [],
+    "boards": [
+      "Raspberry Pi"
+    ],
+    "repo": "https://github.com/7h30th3r0n3/RaspyJack",
+    "profile": "raspyjack.json",
+    "danger": null
+  },
+  {
+    "slug": "rayhunter",
+    "name": "RayHunter",
+    "group": "SBC / ADB",
+    "category": "IMSI-catcher (cell-site simulator) detector on Orbic hotspot",
+    "backend": "adb",
+    "chips": [],
+    "boards": [
+      "Orbic RC400L"
+    ],
+    "repo": "https://github.com/EFForg/rayhunter",
+    "profile": "rayhunter.json",
+    "danger": null
+  },
+  {
+    "slug": "bw16-deauther",
+    "name": "BW16 Deauther (RTL8720DN)",
+    "group": "RTL8720",
+    "category": "Dual-band 2.4/5GHz BW16 vampire deauther (RTL8720DN/AmebaD)",
+    "backend": "rtl8720",
+    "chips": [
+      "rtl8720"
+    ],
+    "boards": [
+      "BW16 RTL8720DN"
+    ],
+    "repo": "vampel/vampel.github.io",
+    "profile": "rtl8720.json",
+    "danger": ""
+  },
+  {
+    "slug": "sky-spy",
+    "name": "Sky-Spy",
+    "group": "ESP32",
+    "category": "Drone RemoteID detector (lawful airspace monitoring)",
+    "backend": "esptool",
+    "chips": [
+      "esp32c6",
+      "esp32s3"
+    ],
+    "boards": [
+      "ESP32-S3 Generic",
+      "ESP32-C6 Generic"
+    ],
+    "repo": "colonelpanichacks/Sky-Spy",
+    "profile": "sky_spy.json",
+    "danger": null
+  },
+  {
+    "slug": "t-rex",
+    "name": "T-REX",
+    "group": "ESP32",
+    "category": "LilyGo T-Deck pocket pentest terminal (WiFi/BLE/BadUSB)",
+    "backend": "esptool",
+    "chips": [
+      "esp32s3"
+    ],
+    "boards": [
+      "LilyGo T-Deck",
+      "LilyGo T-Deck Plus"
+    ],
+    "repo": "abdallahnatsheh/T-REX-FIRMWARE",
+    "profile": "trex.json",
+    "danger": ""
+  },
+  {
+    "slug": "kali-linux-usb",
+    "name": "Kali Linux (USB)",
+    "group": "Software-OS",
+    "category": "Bootable pentest OS to USB",
+    "backend": "sd/usb-writer",
+    "chips": [],
+    "boards": [
+      "USB flash drive (8GB+)"
+    ],
+    "repo": "https://www.kali.org/get-kali/",
+    "profile": "(os_catalog)",
+    "danger": null
+  },
+  {
+    "slug": "tails-usb",
+    "name": "Tails OS (USB)",
+    "group": "Software-OS",
+    "category": "Amnesic live OS to USB",
+    "backend": "sd/usb-writer",
+    "chips": [],
+    "boards": [
+      "USB flash drive (8GB+)"
+    ],
+    "repo": "https://tails.net/",
+    "profile": "(os_catalog)",
+    "danger": null
+  },
+  {
+    "slug": "arch-usb",
+    "name": "Arch Linux (USB)",
+    "group": "Software-OS",
+    "category": "Arch Linux to USB",
+    "backend": "sd/usb-writer",
+    "chips": [],
+    "boards": [
+      "USB flash drive (8GB+)"
+    ],
+    "repo": "https://archlinux.org/download/",
+    "profile": "(os_catalog)",
+    "danger": null
+  }
+]
