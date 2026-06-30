@@ -9,7 +9,8 @@ Cyber Controller → troubleshooting**, with a downloadable **PDF**.
 > (deauth, evil-AP, RF). Use them only on hardware and networks you own or are explicitly authorized to
 > test. Some entries are **detector-only** or **lab-only/illegal-to-operate** — each guide says which.
 > Where a fact couldn't be verified it is marked `verify:` rather than asserted; never-invented purchase
-> links are given as vendor + search string.
+> links are given as vendor + search string. See [DISCLAIMER.md](DISCLAIMER.md) for the full disclaimer
+> and acceptable-use terms.
 
 Each guide also notes the exact Cyber Controller **profile** and backend, the supported **chips/boards**,
 and the upstream project. Counts and facts are grounded in the app's shipped profiles.
