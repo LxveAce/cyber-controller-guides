@@ -19,7 +19,7 @@ and the upstream project. Counts and facts are grounded in the app's shipped pro
 _📄 = download the complete-walkthrough PDF · ⚠ = lab-only / illegal-to-operate · 🛡 = detector/defensive-only_
 
 
-**29 guides** across 7 categories.
+**30 guides** across 7 categories.
 
 
 ## ESP32
@@ -99,6 +99,7 @@ Bring-your-own / utility profiles.
 | Project | Chips / Backend | Upstream | Guide | PDF |
 |---------|-----------------|----------|-------|-----|
 | **[Custom / local .bin](guides/custom-local-bin.md)** | esptool | — | [guide](guides/custom-local-bin.md) | [📄](pdf/custom-local-bin.pdf) |
+| **[Jammer Detection 🛡](guides/jammer-detection.md)** | — | — | [guide](guides/jammer-detection.md) | — |
 
 ---
 

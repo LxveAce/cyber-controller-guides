@@ -55,7 +55,7 @@
     ],
     "repo": "EmenstaNougat/BlueJammer-V2",
     "profile": "bluejammer_bw16.json",
-    "danger": "LAB-ONLY / illegal to operate (FCC 47 U.S.C. 333) \u2014 flash-and-study only"
+    "danger": "LAB-ONLY / illegal to operate (FCC 47 U.S.C. 333) — flash-and-study only"
   },
   {
     "slug": "bluejammer-esp32",
@@ -71,7 +71,7 @@
     ],
     "repo": "EmenstaNougat/BlueJammer-V2",
     "profile": "bluejammer_esp32.json",
-    "danger": "LAB-ONLY / illegal to operate (FCC 47 U.S.C. 333) \u2014 flash-and-study only"
+    "danger": "LAB-ONLY / illegal to operate (FCC 47 U.S.C. 333) — flash-and-study only"
   },
   {
     "slug": "bruce",
@@ -497,6 +497,16 @@
     ],
     "repo": "https://archlinux.org/download/",
     "profile": "(os_catalog)",
+    "danger": null
+  },
+  {
+    "slug": "jammer-detection",
+    "name": "Jammer Detection",
+    "group": "Meta",
+    "category": "RF jammer detection (defensive / blue-team)",
+    "backend": "—",
+    "chips": [],
+    "repo": "",
     "danger": null
   }
 ]

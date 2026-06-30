@@ -137,6 +137,8 @@ All of the above belongs **inside an RF-shielded enclosure**.
 - **No "attack"/transmit option in Cyber Controller:** that is intentional — this profile is flash + telemetry only.
 
 ## 9. Sources
+- **Defensive counterpart:** [Detecting & Locating RF Jammers](jammer-detection.md) — how to detect, classify,
+  and locate an active jammer (the lawful response). Blue-team only; no jamming instructions.
 - **Upstream:** EmenstaNougat/BlueJammer-V2 — <https://github.com/EmenstaNougat/BlueJammer-V2> (README wiring tables, v0.2 release assets, `RUN_THIS.bat`). Closed-source/precompiled; *verify pinouts against the README tables and wiring photos at build time.*
 - **Cyber Controller profile:** `src/config/profiles/bluejammer_esp32.json` (chip, board, offsets, pinned v0.2 SHA-256 hashes, `danger: illegal-tx`, no suicide) and `flash_core.BlueJammerEsp32Profile` (fetch + SHA-256 verify).
 - **Legal:** **47 U.S.C. §333** (willful/malicious interference); **47 CFR §2.803 & Part 15** (uncertified intentional radiators); FCC jammer enforcement advisories. Outside the US: UK Wireless Telegraphy Act, Canada Radiocommunication Act, EU RED/national spectrum law, Australia Radiocommunications Act — *verify the statute and penalties for your jurisdiction.*

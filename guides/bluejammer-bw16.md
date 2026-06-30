@@ -80,7 +80,30 @@ Cyber Controller flashes the BW16 controller using the **`rtl8720` backend** (Re
   - `km0_km4_image2.bin` → `615c382d48b89e1faceeba0ac586538894a21d4eeb4dc0c64027fcb271a84ef9`
   - `imgtool_flashloader_amebad.bin` → `9307121385cb390dfd2da64da2c6c515f17b5a9556b3d04021487c9b9f220b55`
   - *(Note: `km0_km4_image2.bin` here is the BlueJammer-V2 v0.2 image — a different digest from the standalone `rtl8720` Vampire-Deauther image; the boot files and SRAM loader are shared.)*
-- **Control surface — documented, NOT driven:** the device is operated only from its **self-hosted web UI** (join AP `BlueJ-V2_by_@emensta` / pass `NoConn1337` → `http://192.168.1.1`) plus the physical button. The web UI exposes mode buttons (**Bluetooth, BLE, WiFi, RC/Drone, Idle**), nRF module status, a live serial monitor/command log, OLED brightness (0–100 %), and AP timeout/shutdown settings. **There is no serial command channel**, so Cyber Controller **cannot key the transmitter** — and, per the illegal-to-operate framing, **does not**. Any future in-app control panel would have to POST to the web UI's mode endpoints (which must be captured on real hardware first) and would be **gated behind the `illegal-tx` confirmation**.
+- **Control surface — documented, and now scaffolded in-app (but inert by default).** The device is *operated*
+  only from its **self-hosted web UI** (join AP `BlueJ-V2_by_@emensta` / pass `NoConn1337` → `http://192.168.1.1`)
+  plus the physical button. The web UI's options — a **reference** (documented, not an operating manual):
+
+  | Web-UI option | What it is |
+  |---|---|
+  | **Idle** | The **STOP** state — engine not emitting. Setting Idle is how you stop it from the web UI. |
+  | **Bluetooth / BLE / WiFi / RC-Drone** | The four jamming **modes** (run by the ESP32 + nRF24 engine, not the BW16). Listed only to document the control surface — **no operating guidance is given**. |
+  | **nRF module status** | Live presence/health of the up-to-4× nRF24L01+ modules, as reported by the engine. |
+  | **Serial monitor / command log** | The BW16↔ESP32 link log (`LINKOK` handshake, mode/telemetry lines). |
+  | **OLED brightness (0–100 %)** | Display brightness on the engine's 128×64 OLED. |
+  | **AP timeout / shutdown** | Auto-timeout / shutdown behaviour for the controller's access point. |
+
+  **No serial command channel exists**, so the controller cannot be keyed over USB serial. Cyber Controller now
+  ships the in-app control **scaffolding** — a prominent **STOP** button, an **RF-shielded-enclosure attestation**
+  that gates the **arm-mode** buttons, a transport layer (web-UI HTTP / inter-board UART), and a **Load control
+  map…** slot — **but it is fail-safe and inert by default: it ships no control frames and refuses to send**
+  (`ControlUnavailable`) until you load a control map captured from your **own** device under your own
+  authorization. STOP / the web UI / power remain the operative stop paths; the arming path is intentionally a
+  non-functional placeholder (`danger: illegal-tx`).
+- **Control-map template (fill it in yourself):** Cyber Controller ships a blank template at
+  `docs/bluejammer-control-map.example.json` — empty, `validated: false`, so it stays inert. To enable in-app
+  arm control you populate it with frames/endpoints captured from your **own** device (the app supplies none and
+  won't derive them), then load it via the panel's **Load control map…**. STOP / web UI / power work without it.
 - **No Dead Man's Switch / suicide:** `supports_suicide: false` for this profile.
 - **Backup first:** use **Backup** in the Flash tab to dump the BW16's current flash before overwriting.
 
@@ -103,6 +126,8 @@ This section is intentionally **not** an operating manual. There are **no jammin
 - **Bricked controller:** re-run the AmebaD flash from download mode; the 3-file bundle + SRAM loader is the full image set, so a clean re-flash normally recovers it.
 
 ## 9. Sources
+- **Defensive counterpart:** [Detecting & Locating RF Jammers](jammer-detection.md) — blue-team guide to
+  detecting, classifying, and locating an active jammer (the lawful response to one). No jamming instructions.
 - Upstream firmware: <https://github.com/EmenstaNougat/BlueJammer-V2> (README, Firmware-Flasher, v0.2 release) — closed-source, pre-compiled bins. Official device source per upstream: emensta.pages.dev. Related upstream repos: `EmenstaNougat/ESP32-BlueJammer`, `EmenstaNougat/BW16-BlueJammer`.
 - Cyber Controller profile: `src/config/profiles/bluejammer_bw16.json` (backend, pinned v0.2 assets + SHA-256, control surface, danger flag) and `src/config/profiles/rtl8720.json` (shared AmebaD backend behaviour, baud, download mode).
 - BW16 / RTL8720DN module: Realtek AmebaD platform; Ameba Arduino docs and BW16 troubleshooting guides (forum.amebaiot.com), `pushtoopen/BW16_RTL8720`, Hackster.io BW16 getting-started/troubleshooting. **Verify your module's exact flash size and pinout against its datasheet.**
