@@ -1,0 +1,9 @@
+# Toolchain for regenerating the guides' PDFs and diagrams.
+#   python tools/build_pdfs.py   -> markdown + xhtml2pdf (default engine); reportlab is the always-works fallback
+#   python tools/diagrams.py     -> Pillow
+# build_readme.py needs only the standard library.
+#   pip install -r tools/requirements.txt
+markdown>=3.10
+xhtml2pdf>=0.2.17
+reportlab>=4.4
+Pillow>=10.0
