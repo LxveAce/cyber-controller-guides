@@ -58,7 +58,11 @@ def _danger_icon(p: dict) -> str:
     return ""
 
 
-def main() -> int:
+def render() -> str:
+    """Build the full README.md index text from data/projects.json + the guides/PDFs on disk.
+
+    Pure (no side effects) so tests can assert the committed README matches this output.
+    """
     projects = json.loads(DATA.read_text(encoding="utf-8"))
     have = {p.stem for p in GUIDES.glob("*.md")}
     havepdf = {p.stem for p in PDF.glob("*.pdf")}
@@ -100,8 +104,12 @@ def main() -> int:
     lines.append("Regenerate this index: `python tools/build_readme.py` · Rebuild PDFs: "
                  "`python tools/build_pdfs.py`\n")
 
-    README.write_text("\n".join(lines), encoding="utf-8")
-    print(f"wrote {README} ({total} projects across {len(groups)} groups)")
+    return "\n".join(lines)
+
+
+def main() -> int:
+    README.write_text(render(), encoding="utf-8")
+    print(f"wrote {README}")
     return 0
 
 
