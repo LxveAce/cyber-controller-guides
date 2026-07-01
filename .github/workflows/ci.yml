@@ -1,0 +1,40 @@
+name: guides-ci
+
+# Guards the data <-> guide <-> PDF <-> README invariants so a guide/data change can't merge without a
+# regenerated index (and its PDF). This is the check that was missing when jammer-detection.md shipped
+# without pdf/jammer-detection.pdf.
+#
+# NOTE: PDFs are intentionally NOT byte-diffed here. tools/build_pdfs.py stamps the build date into every
+# cover and xhtml2pdf embeds a creation timestamp, so a rebuild is never byte-identical. The pytest suite
+# enforces that every guide HAS a PDF instead, which catches the real drift class.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install toolchain
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/requirements.txt pytest
+
+      - name: Validate data/guide/PDF/README invariants
+        run: python -m pytest -q
+
+      - name: README index must be regenerated (no drift)
+        run: |
+          python tools/build_readme.py
+          if ! git diff --exit-code -- README.md; then
+            echo "::error::README.md is stale — run: python tools/build_readme.py and commit the result"
+            exit 1
+          fi
