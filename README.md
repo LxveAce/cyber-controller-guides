@@ -99,7 +99,7 @@ Bring-your-own / utility profiles.
 | Project | Chips / Backend | Upstream | Guide | PDF |
 |---------|-----------------|----------|-------|-----|
 | **[Custom / local .bin](guides/custom-local-bin.md)** | esptool | — | [guide](guides/custom-local-bin.md) | [📄](pdf/custom-local-bin.pdf) |
-| **[Jammer Detection 🛡](guides/jammer-detection.md)** | — | — | [guide](guides/jammer-detection.md) | — |
+| **[Jammer Detection 🛡](guides/jammer-detection.md)** | — | — | [guide](guides/jammer-detection.md) | [📄](pdf/jammer-detection.pdf) |
 
 ---
 
