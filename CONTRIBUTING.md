@@ -5,9 +5,11 @@ These are community hardware guides for the firmwares/targets
 
 ## How it's organized
 - `data/projects.json` — the backbone (slug, name, group, chips, backend, upstream repo). Drives the index.
-- `guides/<slug>.md` — one in-depth guide per project (the source of truth). Follow the existing
-  9-section structure: Overview · Legal & Safety · Hardware & Purchasing · Building/Assembly ·
-  Flashing & First Run · Integrate into Cyber Controller · Usage · Troubleshooting · Sources.
+- `guides/<slug>.md` — one in-depth guide per project (the source of truth). Firmware/OS guides follow
+  the existing 9-section structure: Overview · Legal & Safety · Hardware & Purchasing · Building/Assembly ·
+  Flashing & First Run · Integrate into Cyber Controller · Usage · Troubleshooting · Sources. Meta /
+  defensive guides (e.g. `jammer-detection.md`) are conceptual rather than a single-device build, so they
+  may use a topic-specific layout — keep numbered sections that open with an Overview and close with Sources.
 - `pdf/<slug>.pdf` — generated from the matching guide via `tools/build_pdfs.py` (do not hand-edit).
 - `README.md` — generated index (`tools/build_readme.py`); edit the guides + data, then regenerate.
 
