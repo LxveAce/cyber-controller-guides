@@ -4,10 +4,13 @@
 Reproducible + portable: probes for a PDF engine and uses the best available, so the repo builds on a
 fresh machine without system libraries.
 
-Engine order (first that works wins):
-  1. pandoc                     (if on PATH) — best typography
-  2. markdown + weasyprint      (great CSS, needs cairo/pango system libs)
-  3. markdown + xhtml2pdf       (pure-Python, no system deps)        ← default here
+Engine order (first that works wins). xhtml2pdf is CANONICAL and tried first: it produced every
+committed PDF and the cover/footer CSS below uses xhtml2pdf-specific directives (``@frame footer``,
+``<pdf:pagenumber>``), so a fresh rebuild reproduces the committed set instead of silently diverging.
+The rest are fallbacks only.
+  1. markdown + xhtml2pdf       (pure-Python, no system deps)        ← canonical
+  2. markdown + weasyprint      (fallback; great CSS, needs cairo/pango system libs)
+  3. pandoc                     (fallback, if on PATH; run from guides/ so ../assets resolves)
   4. reportlab plaintext        (always available fallback; plain but readable)
 
 Usage:  python tools/build_pdfs.py [slug ...]   (no args = all guides)
@@ -16,6 +19,7 @@ Usage:  python tools/build_pdfs.py [slug ...]   (no args = all guides)
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -120,8 +124,13 @@ def _via_pandoc(md_path: Path, out: Path) -> bool:
     if not shutil.which("pandoc"):
         return False
     try:
-        subprocess.run(["pandoc", str(md_path), "-o", str(out)], check=True,
-                       capture_output=True, timeout=120)
+        # Run from guides/ (and pass --resource-path) so the guides' ``../assets/*.png`` image refs
+        # resolve to the repo-root assets/ dir instead of one level above the repo.
+        subprocess.run(
+            ["pandoc", md_path.name, "-o", str(out),
+             f"--resource-path={GUIDES}{os.pathsep}{ROOT}"],
+            check=True, capture_output=True, timeout=120, cwd=str(GUIDES),
+        )
         return True
     except Exception:
         return False
@@ -171,13 +180,15 @@ def build_one(md_path: Path, meta: dict) -> str:
     out = PDF / f"{slug}.pdf"
     PDF.mkdir(exist_ok=True)
     md_text = md_path.read_text(encoding="utf-8")
-    if _via_pandoc(md_path, out):
-        return f"pandoc   -> {out.name}"
+    # xhtml2pdf is canonical (see module docstring); the styled HTML path is tried before the
+    # divergent pandoc/reportlab fallbacks so rebuilds reproduce the committed PDFs.
     html = _to_html(md_text, slug, meta)
-    if _via_weasyprint(html, out):
-        return f"weasy    -> {out.name}"
     if _via_xhtml2pdf(html, out):
         return f"xhtml2pdf-> {out.name}"
+    if _via_weasyprint(html, out):
+        return f"weasy    -> {out.name}"
+    if _via_pandoc(md_path, out):
+        return f"pandoc   -> {out.name}"
     if _via_reportlab(md_text, out):
         return f"reportlab-> {out.name}"
     return f"FAILED   -> {slug} (no PDF engine available; pip install xhtml2pdf)"
