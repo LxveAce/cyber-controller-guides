@@ -9,11 +9,6 @@
       "esp32",
       "esp32s3"
     ],
-    "boards": [
-      "ESP32 Generic",
-      "ESP32-S3 Generic",
-      "ESP32 CYD 2.8\" Touchscreen"
-    ],
     "repo": "MatthewKuKanich/ESP32-AirTag-Scanner",
     "profile": "airtag_scanner.json",
     "danger": null
@@ -26,16 +21,6 @@
     "backend": "esptool",
     "chips": [
       "esp32s3"
-    ],
-    "boards": [
-      "Seeed XIAO ESP32-S3",
-      "M5 Cardputer",
-      "M5StickC Plus2 (StickS3)",
-      "LilyGo T-Embed CC1101",
-      "LilyGo T-Display-S3",
-      "ESP32-S3 DevKit (8MB / 16MB-N16R8)",
-      "M5 AtomS3 Lite",
-      "M5 Stamp S3"
     ],
     "repo": "geo-tp/ESP32-Bit-Pirate",
     "profile": "bit_pirate.json",
@@ -50,9 +35,6 @@
     "chips": [
       "rtl8720"
     ],
-    "boards": [
-      "Ai-Thinker BW16 (RTL8720DN)"
-    ],
     "repo": "EmenstaNougat/BlueJammer-V2",
     "profile": "bluejammer_bw16.json",
     "danger": "LAB-ONLY / illegal to operate (FCC 47 U.S.C. 333) — flash-and-study only"
@@ -65,9 +47,6 @@
     "backend": "esptool",
     "chips": [
       "esp32"
-    ],
-    "boards": [
-      "ESP32-WROOM-32U"
     ],
     "repo": "EmenstaNougat/BlueJammer-V2",
     "profile": "bluejammer_esp32.json",
@@ -85,17 +64,6 @@
       "esp32c6",
       "esp32s3"
     ],
-    "boards": [
-      "ESP32 Generic",
-      "M5Cardputer",
-      "M5StickC Plus2",
-      "LilyGo T-Embed CC1101",
-      "LilyGo T-Deck",
-      "LilyGo T-Dongle-S3",
-      "ESP32 CYD (CYD-2432S028)",
-      "ESP32-C5 Generic",
-      "ESP32-C6 Generic"
-    ],
     "repo": "BruceDevices/firmware",
     "profile": "bruce.json",
     "danger": null
@@ -107,7 +75,6 @@
     "category": "Bring-your-own precompiled .bin (any ESP32)",
     "backend": "esptool",
     "chips": [],
-    "boards": [],
     "repo": "",
     "profile": "custom.json",
     "danger": ""
@@ -120,9 +87,6 @@
     "backend": "esptool",
     "chips": [
       "esp32"
-    ],
-    "boards": [
-      "ESP32 Generic"
     ],
     "repo": "ArgeliusLabs/Chasing-Your-Tail-NG",
     "profile": "cyt_ng.json",
@@ -138,10 +102,6 @@
       "esp32",
       "esp32s3"
     ],
-    "boards": [
-      "ESP32-S3 (DIV v2, current)",
-      "ESP32 Generic (DIV v1, legacy)"
-    ],
     "repo": "cifertech/ESP32-DIV",
     "profile": "esp32_div.json",
     "danger": null
@@ -154,9 +114,6 @@
     "backend": "qflipper",
     "chips": [
       "stm32wb55"
-    ],
-    "boards": [
-      "Flipper Zero"
     ],
     "repo": "Next-Flip/Momentum-Firmware",
     "profile": "flipper_momentum.json",
@@ -171,9 +128,6 @@
     "chips": [
       "stm32wb55"
     ],
-    "boards": [
-      "Flipper Zero"
-    ],
     "repo": "DarkFlippers/unleashed-firmware",
     "profile": "flipper_unleashed.json",
     "danger": null
@@ -186,9 +140,6 @@
     "backend": "esptool",
     "chips": [
       "esp32s3"
-    ],
-    "boards": [
-      "ESP32-S3 Generic"
     ],
     "repo": "colonelpanichacks/flock-you",
     "profile": "flock_you.json",
@@ -206,13 +157,6 @@
       "esp32c6",
       "esp32s3"
     ],
-    "boards": [
-      "ESP32 Generic",
-      "ESP32-S3 DevKitC-1",
-      "ESP32-C5 DevKitC-1",
-      "ESP32-C6 DevKitC-1",
-      "ESP32 CYD 2.8\" Touchscreen"
-    ],
     "repo": "GhostESP-Revival/GhostESP",
     "profile": "ghost_esp.json",
     "danger": null
@@ -225,12 +169,6 @@
     "backend": "esptool",
     "chips": [
       "esp32"
-    ],
-    "boards": [
-      "ESP32 CYD 2.8\" (ESP32-2432S028R)",
-      "QDtech E32R35T CYD 3.5\"",
-      "QDtech E32R28T CYD 2.8\"",
-      "NM-RF-Hat"
     ],
     "repo": "JesseCHale/HaleHound-CYD",
     "profile": "halehound.json",
@@ -245,9 +183,6 @@
     "chips": [
       "esp32"
     ],
-    "boards": [
-      "ESP32 DevKit V1"
-    ],
     "repo": "SameerAlSahab/ESP32-Deauther",
     "profile": "hydra32.json",
     "danger": null
@@ -259,9 +194,6 @@
     "category": "Kali Linux ARM image for Raspberry Pi",
     "backend": "sd",
     "chips": [],
-    "boards": [
-      "Raspberry Pi"
-    ],
     "repo": "https://kali.download/arm-images/",
     "profile": "kali_arm.json",
     "danger": null
@@ -278,20 +210,6 @@
       "esp32s2",
       "esp32s3"
     ],
-    "boards": [
-      "Lonely Binary ESP32 Gold",
-      "ESP32 CYD 2.8\" Touchscreen",
-      "ESP32 CYD 2.4\" Guition",
-      "ESP32 CYD 3.5\" Touchscreen",
-      "Waveshare ESP32-C5",
-      "M5StickC Plus2",
-      "M5Cardputer",
-      "M5Cardputer ADV",
-      "Marauder Mini",
-      "Marauder Mini v3 (C5 Edition)",
-      "Flipper Zero WiFi Dev Board",
-      "Flipper MultiBoard S3"
-    ],
     "repo": "justcallmekoko/ESP32Marauder",
     "profile": "marauder.json",
     "danger": null
@@ -305,10 +223,6 @@
     "chips": [
       "esp32s3"
     ],
-    "boards": [
-      "LilyGo T-Deck Plus",
-      "LilyGo T-Watch Ultra"
-    ],
     "repo": "laserir/MCLite",
     "profile": "mclite.json",
     "danger": ""
@@ -321,9 +235,6 @@
     "backend": "esptool",
     "chips": [
       "esp32s3"
-    ],
-    "boards": [
-      "Heltec LoRa V3"
     ],
     "repo": "meshtastic/firmware",
     "profile": "meshtastic.json",
@@ -339,10 +250,6 @@
       "esp32",
       "esp32s3"
     ],
-    "boards": [
-      "ESP32 Dual-Core Generic",
-      "M5Cardputer (ESP32-S3)"
-    ],
     "repo": "dj1ch/minigotchi-V3",
     "profile": "minigotchi.json",
     "danger": null
@@ -356,9 +263,6 @@
     "chips": [
       "esp32s3"
     ],
-    "boards": [
-      "ESP32-S3 Generic"
-    ],
     "repo": "colonelpanichacks/oui-spy-unified-blue",
     "profile": "oui_spy.json",
     "danger": null
@@ -370,10 +274,6 @@
     "category": "Raspberry Pi WiFi handshake/PMKID AI collector",
     "backend": "sd",
     "chips": [],
-    "boards": [
-      "Raspberry Pi Zero 2 W",
-      "Raspberry Pi 3/4/5"
-    ],
     "repo": "https://github.com/jayofelony/pwnagotchi",
     "profile": "pwnagotchi.json",
     "danger": null
@@ -385,9 +285,6 @@
     "category": "Raspberry Pi network-attack drop tool (Bash Bunny-like)",
     "backend": "sd",
     "chips": [],
-    "boards": [
-      "Raspberry Pi"
-    ],
     "repo": "https://github.com/7h30th3r0n3/RaspyJack",
     "profile": "raspyjack.json",
     "danger": null
@@ -399,9 +296,6 @@
     "category": "IMSI-catcher (cell-site simulator) detector on Orbic hotspot",
     "backend": "adb",
     "chips": [],
-    "boards": [
-      "Orbic RC400L"
-    ],
     "repo": "https://github.com/EFForg/rayhunter",
     "profile": "rayhunter.json",
     "danger": null
@@ -414,9 +308,6 @@
     "backend": "rtl8720",
     "chips": [
       "rtl8720"
-    ],
-    "boards": [
-      "BW16 RTL8720DN"
     ],
     "repo": "vampel/vampel.github.io",
     "profile": "rtl8720.json",
@@ -432,10 +323,6 @@
       "esp32c6",
       "esp32s3"
     ],
-    "boards": [
-      "ESP32-S3 Generic",
-      "ESP32-C6 Generic"
-    ],
     "repo": "colonelpanichacks/Sky-Spy",
     "profile": "sky_spy.json",
     "danger": null
@@ -449,10 +336,6 @@
     "chips": [
       "esp32s3"
     ],
-    "boards": [
-      "LilyGo T-Deck",
-      "LilyGo T-Deck Plus"
-    ],
     "repo": "abdallahnatsheh/T-REX-FIRMWARE",
     "profile": "trex.json",
     "danger": ""
@@ -464,9 +347,6 @@
     "category": "Bootable pentest OS to USB",
     "backend": "sd/usb-writer",
     "chips": [],
-    "boards": [
-      "USB flash drive (8GB+)"
-    ],
     "repo": "https://www.kali.org/get-kali/",
     "profile": "(os_catalog)",
     "danger": null
@@ -478,9 +358,6 @@
     "category": "Amnesic live OS to USB",
     "backend": "sd/usb-writer",
     "chips": [],
-    "boards": [
-      "USB flash drive (8GB+)"
-    ],
     "repo": "https://tails.net/",
     "profile": "(os_catalog)",
     "danger": null
@@ -492,9 +369,6 @@
     "category": "Arch Linux to USB",
     "backend": "sd/usb-writer",
     "chips": [],
-    "boards": [
-      "USB flash drive (8GB+)"
-    ],
     "repo": "https://archlinux.org/download/",
     "profile": "(os_catalog)",
     "danger": null
