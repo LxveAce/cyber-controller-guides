@@ -129,6 +129,36 @@ Create a small JSON file (e.g. `my-firmware.json`) pointing at your `.bin`:
 ### 5.3 Multi-file via the support map
 The Flash-tab local-profile flow writes **one** file at `0x0` (the merged case). For a genuine **multi-file** flash — separate bootloader/partitions/app each at its own offset — the underlying `flash_local()` surface accepts a `support` map (`offset → path`) plus an `app_offset`; supplying it switches the flash to "full" mode. If your build doesn't expose this in the UI, the robust workaround is [§4.2 option 1](#42-merged-single-bin-vs-multi-file): **`esptool merge_bin`** your separate files into one image and flash that at `0x0`. *(`verify:` whether your Cyber Controller build surfaces the support-map / per-offset picker in the Flash tab.)*
 
+### 5.4 Worked example — the Evil-M5 family (Cardputer / StickC / Core2 / …)
+A concrete, common case for this profile. **Evil-M5** (`7h30th3r0n3/Evil-M5Project` — the unified successor to the old *Evil-Cardputer* / *Evil-M5Core* / *Evil-M5Core2* projects; the `Evil-M5Core2` repo now redirects here) is a WiFi suite for M5Stack devices centered on **Evil Portal** (captive-portal / credential-capture). Cyber Controller ships **no `github_release` profile** for it — its GitHub **Releases page is empty**. But it does **not** need M5Burner: the maintainer commits **prebuilt merged `.bin` images straight into the repo tree** at [`binaries/`](https://github.com/7h30th3r0n3/Evil-M5Project/tree/main/binaries), so it's a textbook bring-your-own-`.bin` flash — download the one for your board, flash it at `0x0`.
+
+> **Authorized use only.** Evil Portal stands up a fake captive portal to harvest credentials. Run it **only** against networks/people you own or have **written permission** to test. See [§2](#2-legal--safety).
+
+**Pick your image** (from `binaries/`, versions are in the filename — there is no "latest" pointer, so sort by version; newest as of 2026-07-03 shown):
+
+| M5 board | Example file in `binaries/` | Chip (`chip:`) | Flash | Notes |
+|----------|-----------------------------|----------------|-------|-------|
+| **M5Cardputer** | `Evil-Cardputer-v1-5-3.bin` | `esp32s3` | 8 MB | the common one |
+| **M5Cardputer ADV** | `Evil-ADV-V1.4.5.bin` | `esp32s3` | 8 MB | |
+| **M5Cardputer (C5 build)** | `Evil_Cardputer_v1_5_1_C5_serial.bin` | `esp32c5` | 8 MB | set `chip` **explicitly** — don't auto-detect a C5 |
+| **M5StickC / StickC Plus** | `Evil-Stick-Beta.bin` | `esp32` | 4 MB | beta |
+| **M5Core2** | `Evil-Core2-v1.3.9.bin` (or `Evil-M5Core2.bin`) | `esp32` | 16 MB | needs a **16 MB** board |
+| **M5CoreS3 (Core3)** | `Evil-Core3-v1.1.9.bin` | `esp32s3` | 16 MB | |
+| **M5AtomS3** | `Evil-AtomS3-v1.1.7.bin` | `esp32s3` | 16 MB | |
+| **M5Stack Fire** | `Evil-Fire-v1.3.9.bin` | `esp32` | 16 MB | |
+| **CYD (1-USB / 2-USB)** | `Evil-CYD1USB-Beta.bin` / `Evil-CYD2USB-Beta.bin` | `esp32` | ~2 MB | beta |
+
+**Flash it:**
+1. Open the repo's [`binaries/`](https://github.com/7h30th3r0n3/Evil-M5Project/tree/main/binaries) folder, click the newest `.bin` for **your** board, and **Download raw** (the file itself, not the HTML page).
+2. These are **merged full-flash images** — the main ones are exactly the board's flash size (Cardputer = 8 MB, Core2/AtomS3 = 16 MB), so they flash **whole, at `0x0`**: the `custom` default. Nothing to merge or offset.
+3. Write a local profile per [§5.1](#51-write-a-one-off-local-profile-recommended-most-explicit) pointing `local_path` at your download, and set **`chip`** to the value in the table (the Cardputer C5 build especially — force `"esp32c5"`, don't rely on auto-detect):
+   ```json
+   { "id": "custom", "name": "Evil-M5 Cardputer (local)", "local_path": "C:/path/to/Evil-Cardputer-v1-5-3.bin", "chip": "esp32s3" }
+   ```
+4. Flash per [§5.2](#52-flash-it). If it flashes clean but won't boot, the usual suspect is a **flash-size mismatch** (a 16 MB Core2 image on a smaller board) or a rare app-only build — see [§8](#8-troubleshooting).
+
+**One real caveat:** the repo publishes **no checksums** for these `binaries/`, so there's nothing to verify a download against ([§2](#2-legal--safety) — prefer building from source if you need provenance). This in-repo-binaries layout is also why a future Cyber Controller **repo-tree resolver** (not a `github_release` one) could eventually automate the pick — until then, this manual local-`.bin` path is the supported route.
+
 ## 6. Integration (the `custom` profile)
 - **Profile facts** (`src/config/profiles/custom.json`): `id: custom`, `backend: esptool`, `protocol: custom`, `boards: []`, `default_baud: 921600`, `repo: null`, `firmware_urls: {}`, `danger: ""`, `supports_suicide: false`, `image_model: merged-single-bin`, `resolver: local`, `app_offset: 0x0`, `variants_for_chip: all`, `default_variant: first`.
 - **No remote anything.** `latest_release()` returns `("local", [])` and `support_files()` returns `None` — there's nothing to download. As the profile note says: *"No GitHub repo — the user points at local files via the bespoke `flash_local()` / `local_asset()` surface … the engine has a dedicated custom branch."*
@@ -171,4 +201,5 @@ Because Cyber Controller doesn't know your firmware's protocol, "usage" is **ver
 - **esptool** (the backend Cyber Controller drives): write_flash, `merge_bin`, `chip_id`, flash offsets and memory layout — <https://docs.espressif.com/projects/esptool/> (`verify:` your installed version is `>=4.7,<6`).
 - **Espressif build/flash flows for finding offsets:** ESP-IDF `idf.py flash` output and `build/flasher_args.json`; Arduino *Export Compiled Binary* + verbose upload; PlatformIO `pio run -v`; ESP Web Tools `manifest.json` `parts[].offset`.
 - **Cyber Controller profile & engine:** `src/config/profiles/custom.json` (`backend: esptool`, `resolver: local`, `image_model: merged-single-bin`, `app_offset: 0x0`, `supports_suicide: false`); `flash_core.CustomLocalProfile` (`flash_local()`, `local_asset()`, `latest_release() → ("local", [])`); `flash_engine._flash_esptool` (chip resolve → `local_path` custom branch); per-chip bootloader offsets in `flash_core._bootloader_offset` / `_BOOTLOADER_OFFSET` (C5 → `0x2000`).
+- **Evil-M5 worked example ([§5.4](#54-worked-example--the-evil-m5-family-cardputer--stickc--core2-)):** `7h30th3r0n3/Evil-M5Project` — GitHub **Releases empty**; prebuilt merged images live in the repo tree at <https://github.com/7h30th3r0n3/Evil-M5Project/tree/main/binaries> (per-board `.bin`, flash-size-matched, written at `0x0`). `Evil-M5Core2` redirects to this repo. Board→chip mapping and versions read from the `binaries/` listing on 2026-07-03 (`verify:` the newest version for your board — filenames carry the version, there is no "latest" symlink). No published checksums.
 - **Offsets used above** come from the profile JSON + Cyber Controller's flash core (merged@`0x0`; bootloader `0x1000` classic/S2, `0x0` S3+RISC-V, `0x2000` C5; partitions `0x8000`; `boot_app0` `0xE000`; app `0x10000`). For a **specific** project always confirm against that project's own flash script / `flasher_args.json` — *if a value isn't in the JSON or your project's docs, verify it before flashing.*
