@@ -159,6 +159,8 @@ A concrete, common case for this profile. **Evil-M5** (`7h30th3r0n3/Evil-M5Proje
 
 **One real caveat:** the repo publishes **no checksums** for these `binaries/`, so there's nothing to verify a download against ([§2](#2-legal--safety) — prefer building from source if you need provenance). This in-repo-binaries layout is also why a future Cyber Controller **repo-tree resolver** (not a `github_release` one) could eventually automate the pick — until then, this manual local-`.bin` path is the supported route.
 
+*Evil-M5 coverage (and the Cardputer/StickC firmware focus behind this guide) was requested by **RedneckNetrunner** (GOS Discord) — thanks for the firmware list and the field testing.*
+
 ## 6. Integration (the `custom` profile)
 - **Profile facts** (`src/config/profiles/custom.json`): `id: custom`, `backend: esptool`, `protocol: custom`, `boards: []`, `default_baud: 921600`, `repo: null`, `firmware_urls: {}`, `danger: ""`, `supports_suicide: false`, `image_model: merged-single-bin`, `resolver: local`, `app_offset: 0x0`, `variants_for_chip: all`, `default_variant: first`.
 - **No remote anything.** `latest_release()` returns `("local", [])` and `support_files()` returns `None` — there's nothing to download. As the profile note says: *"No GitHub repo — the user points at local files via the bespoke `flash_local()` / `local_asset()` surface … the engine has a dedicated custom branch."*
