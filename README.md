@@ -106,3 +106,9 @@ Bring-your-own / utility profiles.
 Built for the Cyber Controller project by **LxveAce**. Guides are MIT-licensed; the firmwares themselves are owned by their respective upstream authors (see each guide's Sources). Vendor links/prices change — verify at purchase time.
 
 Regenerate this index: `python tools/build_readme.py` · Rebuild PDFs: `python tools/build_pdfs.py`
+
+---
+
+### Built by LxveLabs
+
+A **LxveLabs** project by LxveAce — hardware & security tools. LxveLabs is developing custom multi-radio ESP32 hardware in collaboration with [PCBWay](https://www.pcbway.com). More at [github.com/LxveAce](https://github.com/LxveAce).
