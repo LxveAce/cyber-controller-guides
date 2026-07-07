@@ -12,6 +12,8 @@ Cyber Controller → troubleshooting**, with a downloadable **PDF**.
 > links are given as vendor + search string. See [DISCLAIMER.md](DISCLAIMER.md) for the full disclaimer
 > and acceptable-use terms.
 
+> **⚡ Hardware in the works** — [LxveLabs](https://github.com/LxveAce) is developing a custom security-hardware board **in collaboration with [PCBWay](https://www.pcbway.com)**.
+
 Each guide also notes the exact Cyber Controller **profile** and backend, the supported **chips/boards**,
 and the upstream project. Counts and facts are grounded in the app's shipped profiles.
 
