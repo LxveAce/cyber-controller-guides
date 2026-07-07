@@ -1,7 +1,8 @@
 # Cyber Controller — Hardware Guides
 
-In-depth, project-by-project guides for **every firmware and target** that
-[Cyber Controller](https://github.com/LxveAce/cyber-controller) can flash and control. Each guide is a
+In-depth, project-by-project guides for the firmware and hardware targets that
+[Cyber Controller](https://github.com/LxveAce/cyber-controller) can flash and control (guides are added as
+they're written, so not every supported target is covered yet). Each guide is a
 complete walkthrough: **what to buy → how to build it → how to flash & run it → how to integrate it into
 Cyber Controller → troubleshooting**, with a downloadable **PDF**.
 
