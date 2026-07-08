@@ -29,8 +29,9 @@ GROUP_BLURB = {
 
 HEADER = """# Cyber Controller — Hardware Guides
 
-In-depth, project-by-project guides for **every firmware and target** that
-[Cyber Controller](https://github.com/LxveAce/cyber-controller) can flash and control. Each guide is a
+In-depth, project-by-project guides for the firmware and hardware targets that
+[Cyber Controller](https://github.com/LxveAce/cyber-controller) can flash and control (guides are added as
+they're written, so not every supported target is covered yet). Each guide is a
 complete walkthrough: **what to buy → how to build it → how to flash & run it → how to integrate it into
 Cyber Controller → troubleshooting**, with a downloadable **PDF**.
 
@@ -41,11 +42,30 @@ Cyber Controller → troubleshooting**, with a downloadable **PDF**.
 > links are given as vendor + search string. See [DISCLAIMER.md](DISCLAIMER.md) for the full disclaimer
 > and acceptable-use terms.
 
+> **⚡ Hardware in the works** — [LxveLabs](https://github.com/LxveAce) is developing a custom security-hardware board **in collaboration with [PCBWay](https://www.pcbway.com)**.
+
 Each guide also notes the exact Cyber Controller **profile** and backend, the supported **chips/boards**,
 and the upstream project. Counts and facts are grounded in the app's shipped profiles.
 """
 
 LEGEND = "\n_📄 = download the complete-walkthrough PDF · ⚠ = lab-only / illegal-to-operate · 🛡 = detector/defensive-only_\n"
+
+FOOTER = """---
+
+## Connect
+
+- **Discord:** [discord.gg/lxvelabs](https://discord.gg/lxvelabs) — questions, help, or to talk through the guides
+- **GitHub:** [@LxveAce](https://github.com/LxveAce)
+- **Email:** LxveLabs@proton.me (business) · lxveace@proton.me (direct)
+- **Website:** [lxvelabs.com](https://lxvelabs.com) · personal: [lxveace.com](https://lxveace.com)
+- **Project site:** [cybercontroller.org](https://cybercontroller.org)
+
+---
+
+### Built by LxveLabs
+
+A **LxveLabs** project by LxveAce — hardware & security tools. LxveLabs is developing custom multi-radio ESP32 hardware in collaboration with [PCBWay](https://www.pcbway.com). More at [github.com/LxveAce](https://github.com/LxveAce).
+"""
 
 
 def _danger_icon(p: dict) -> str:
@@ -103,12 +123,13 @@ def render() -> str:
                  "Sources). Vendor links/prices change — verify at purchase time.\n")
     lines.append("Regenerate this index: `python tools/build_readme.py` · Rebuild PDFs: "
                  "`python tools/build_pdfs.py`\n")
+    lines.append(FOOTER)
 
     return "\n".join(lines)
 
 
 def main() -> int:
-    README.write_text(render(), encoding="utf-8")
+    README.write_text(render(), encoding="utf-8", newline="\n")
     print(f"wrote {README}")
     return 0
 
