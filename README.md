@@ -112,6 +112,16 @@ Regenerate this index: `python tools/build_readme.py` · Rebuild PDFs: `python t
 
 ---
 
+## Connect
+
+- **Discord:** [discord.gg/lxvelabs](https://discord.gg/lxvelabs) — questions, help, or to talk through the guides
+- **GitHub:** [@LxveAce](https://github.com/LxveAce)
+- **Email:** LxveLabs@proton.me (business) · lxveace@proton.me (direct)
+- **Website:** [lxvelabs.com](https://lxvelabs.com) · personal: [lxveace.com](https://lxveace.com)
+- **Project site:** [cybercontroller.org](https://cybercontroller.org)
+
+---
+
 ### Built by LxveLabs
 
 A **LxveLabs** project by LxveAce — hardware & security tools. LxveLabs is developing custom multi-radio ESP32 hardware in collaboration with [PCBWay](https://www.pcbway.com). More at [github.com/LxveAce](https://github.com/LxveAce).
