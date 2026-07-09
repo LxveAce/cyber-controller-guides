@@ -31,9 +31,9 @@ HEADER = """# Cyber Controller — Hardware Guides
 
 In-depth, project-by-project guides for the firmware and hardware targets that
 [Cyber Controller](https://github.com/LxveAce/cyber-controller) can flash and control (guides are added as
-they're written, so not every supported target is covered yet). Each guide is a
-complete walkthrough: **what to buy → how to build it → how to flash & run it → how to integrate it into
-Cyber Controller → troubleshooting**, with a downloadable **PDF**.
+they're written — the Cyber Controller profiles that don't have a guide **yet** are tracked openly in
+[COVERAGE.md](COVERAGE.md)). Each guide is a complete walkthrough: **what to buy → how to build it → how to
+flash & run it → how to integrate it into Cyber Controller → troubleshooting**, with a downloadable **PDF**.
 
 > **Authorized use only.** Many of these tools transmit on regulated bands or perform offensive actions
 > (deauth, evil-AP, RF). Use them only on hardware and networks you own or are explicitly authorized to
@@ -94,6 +94,11 @@ def render() -> str:
     lines = [HEADER, LEGEND]
     total = sum(len(v) for v in by_group.values())
     lines.append(f"\n**{total} guides** across {len([g for g in by_group if by_group[g]])} categories.\n")
+    lines.append(
+        "**📚 More:** [Cyber Controller](https://github.com/LxveAce/cyber-controller) · "
+        "[cybercontroller.org](https://cybercontroller.org) · [Changelog](CHANGELOG.md) · "
+        "[Coverage & backlog](COVERAGE.md) · [Disclaimer](DISCLAIMER.md) · [Contributing](CONTRIBUTING.md)\n"
+    )
 
     groups = [g for g in GROUP_ORDER if g in by_group] + [g for g in by_group if g not in GROUP_ORDER]
     for g in groups:
