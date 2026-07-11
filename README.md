@@ -1,30 +1,38 @@
+<div align="center">
+
 # Cyber Controller — Hardware Guides
 
-In-depth, project-by-project guides for the firmware and hardware targets that
-[Cyber Controller](https://github.com/LxveAce/cyber-controller) can flash and control (guides are added as
-they're written — the Cyber Controller profiles that don't have a guide **yet** are tracked openly in
-[COVERAGE.md](COVERAGE.md)). Each guide is a complete walkthrough: **what to buy → how to build it → how to
-flash & run it → how to integrate it into Cyber Controller → troubleshooting**, with a downloadable **PDF**.
+### Buy it, build it, flash it, run it — one printable guide per tool.
+
+Hands-on hardware guides for the firmware and OS targets that
+[Cyber Controller](https://github.com/LxveAce/cyber-controller) can flash and control. Each one is a full
+walkthrough — **what to buy → how to build it → how to flash & run it → how to wire it into Cyber Controller →
+troubleshooting** — with a downloadable **PDF**.
+
+[![License: MIT](https://img.shields.io/github/license/LxveAce/cyber-controller-guides?style=for-the-badge)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/LxveAce/cyber-controller-guides?style=for-the-badge)](https://github.com/LxveAce/cyber-controller-guides/stargazers)
+[![For Cyber Controller](https://img.shields.io/badge/for-Cyber%20Controller-7c3aed?style=for-the-badge)](https://github.com/LxveAce/cyber-controller)
+
+**[Cyber Controller](https://github.com/LxveAce/cyber-controller)** · **[cybercontroller.org](https://cybercontroller.org)** · **[Coverage & backlog](COVERAGE.md)** · **[Changelog](CHANGELOG.md)** · **[Disclaimer](DISCLAIMER.md)** · **[Contributing](CONTRIBUTING.md)**
+
+</div>
 
 > **Authorized use only.** Many of these tools transmit on regulated bands or perform offensive actions
 > (deauth, evil-AP, RF). Use them only on hardware and networks you own or are explicitly authorized to
-> test. Some entries are **detector-only** or **lab-only/illegal-to-operate** — each guide says which.
-> Where a fact couldn't be verified it is marked `verify:` rather than asserted; never-invented purchase
-> links are given as vendor + search string. See [DISCLAIMER.md](DISCLAIMER.md) for the full disclaimer
-> and acceptable-use terms.
+> test. Some entries are **detector-only** or **lab-only / illegal-to-operate** — each guide says which.
+> Where a fact couldn't be verified it's marked `verify:` rather than asserted, and purchase links are given
+> as a vendor + search string (never invented). See [DISCLAIMER.md](DISCLAIMER.md) for the full terms.
 
-> **⚡ Hardware in the works** — [LxveLabs](https://github.com/LxveAce) is developing a custom security-hardware board **in collaboration with [PCBWay](https://www.pcbway.com)**.
-
-Each guide also notes the exact Cyber Controller **profile** and backend, the supported **chips/boards**,
-and the upstream project. Counts and facts are grounded in the app's shipped profiles.
+Cyber Controller can flash more targets than are written up here. I add guides as I actually build and run each
+one, so the set grows over time and stays honest about what it doesn't cover yet. Each guide names the exact
+Cyber Controller **profile** and backend, the supported **chips/boards**, and the upstream project — every count
+and fact is grounded in the app's shipped profiles.
 
 
 _📄 = download the complete-walkthrough PDF · ⚠ = lab-only / illegal-to-operate · 🛡 = detector/defensive-only_
 
 
-**30 guides** across 7 categories.
-
-**📚 More:** [Cyber Controller](https://github.com/LxveAce/cyber-controller) · [cybercontroller.org](https://cybercontroller.org) · [Changelog](CHANGELOG.md) · [Coverage & backlog](COVERAGE.md) · [Disclaimer](DISCLAIMER.md) · [Contributing](CONTRIBUTING.md)
+**30 guides** across 7 categories — a full guide for **26 of Cyber Controller's 42** flash profiles, plus bootable-OS and detector walkthroughs. The profiles still waiting on a guide are tracked in [COVERAGE.md](COVERAGE.md).
 
 
 ## ESP32
@@ -108,22 +116,19 @@ Bring-your-own / utility profiles.
 
 ---
 
-Built for the Cyber Controller project by **LxveAce**. Guides are MIT-licensed; the firmwares themselves are owned by their respective upstream authors (see each guide's Sources). Vendor links/prices change — verify at purchase time.
+These guides are MIT-licensed; the firmwares themselves are owned by their respective upstream authors (see each guide's Sources). Vendor links and prices change — verify at purchase time.
 
 Regenerate this index: `python tools/build_readme.py` · Rebuild PDFs: `python tools/build_pdfs.py`
 
 ---
 
-## Connect
+## 📫 Connect
 
 - **Discord:** [discord.gg/lxvelabs](https://discord.gg/lxvelabs) — questions, help, or to talk through the guides
 - **GitHub:** [@LxveAce](https://github.com/LxveAce)
 - **Email:** LxveLabs@proton.me (business) · lxveace@proton.me (direct)
-- **Website:** [lxvelabs.com](https://lxvelabs.com) · personal: [lxveace.com](https://lxveace.com)
-- **Project site:** [cybercontroller.org](https://cybercontroller.org)
+- **Sites:** [lxvelabs.com](https://lxvelabs.com) · [lxveace.com](https://lxveace.com) · [cybercontroller.org](https://cybercontroller.org)
 
 ---
 
-### Built by LxveLabs
-
-A **LxveLabs** project by LxveAce — hardware & security tools. LxveLabs is developing custom multi-radio ESP32 hardware in collaboration with [PCBWay](https://www.pcbway.com). More at [github.com/LxveAce](https://github.com/LxveAce).
+Built by **LxveAce** · a **LxveLabs** project. Hardware supported by [PCBWay](https://www.pcbway.com) — LxveLabs is developing a custom multi-radio ESP32 board in collaboration with PCBWay.

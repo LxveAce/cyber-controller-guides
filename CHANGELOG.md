@@ -11,8 +11,9 @@ track guide/content and tooling changes rather than software releases. Newest fi
 
 Initial published set.
 
-- **30 in-depth guides across 7 categories** — one per supported firmware/target: buy → build → flash → run →
-  integrate into Cyber Controller → troubleshoot. Each carries its lawful-use / danger labels and cites sources.
+- **30 in-depth guides across 7 categories** — buy → build → flash → run → integrate into Cyber Controller →
+  troubleshoot. Covers many of the firmware/targets Cyber Controller can flash (not all of them yet — the gap is
+  tracked in [COVERAGE.md](COVERAGE.md)). Each carries its lawful-use / danger labels and cites sources.
 - **30 print-optimized PDFs** (one per guide) plus pin-layout / connection diagrams.
 - A defensive **jammer-detection** guide (detection only — no transmit content) and expanded BlueJammer web-UI /
   in-app scaffolding docs.
