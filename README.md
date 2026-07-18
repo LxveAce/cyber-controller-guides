@@ -32,7 +32,7 @@ and fact is grounded in the app's shipped profiles.
 _📄 = download the complete-walkthrough PDF · ⚠ = lab-only / illegal-to-operate · 🛡 = detector/defensive-only_
 
 
-**30 guides** across 7 categories — a full guide for **26 of Cyber Controller's 42** flash profiles, plus bootable-OS and detector walkthroughs. The profiles still waiting on a guide are tracked in [COVERAGE.md](COVERAGE.md).
+**30 guides** across 7 categories — a full guide for **26 of Cyber Controller's 50** flash profiles, plus bootable-OS and detector walkthroughs. The profiles still waiting on a guide are tracked in [COVERAGE.md](COVERAGE.md).
 
 
 ## ESP32

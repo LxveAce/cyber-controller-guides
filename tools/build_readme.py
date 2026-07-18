@@ -19,7 +19,7 @@ README = ROOT / "README.md"
 # How many flash profiles Cyber Controller ships (cyber-controller/src/config/profiles/*.json).
 # This repo can't read that count directly, so it's kept here + in COVERAGE.md. Bump both when the app
 # adds/removes profiles — COVERAGE.md is the SSOT for the exact per-profile backlog.
-APP_PROFILE_COUNT = 42
+APP_PROFILE_COUNT = 50
 
 GROUP_ORDER = ["ESP32", "RTL8720", "Flipper Zero", "SBC / SD", "SBC / ADB", "Software-OS", "Meta"]
 GROUP_BLURB = {
